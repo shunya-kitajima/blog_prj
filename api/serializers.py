@@ -22,7 +22,7 @@ class TagSerializer(serializers.ModelSerializer):
 
 class BlogSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True, read_only=True)
-    created_at = serializers.DateField(format="%Y-%m-%d %H:%M:%S", read_only=True)
+    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
     username = serializers.ReadOnlyField(source='user.username', read_only=True)
 
     class Meta:
